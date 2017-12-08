@@ -1,26 +1,42 @@
 package com.company;
 
+
+import java.io.*;
 import java.util.*;
+import java.lang.*;
 
 
     public class ScavengerOne {
 
-        private static int[] bestItems(int capacity, int[] available) {
-            // YOUR CODE IN HERE
-            //
-            // Your code should return the weights of the items that Rey should load in the speeder
-            // If there is no subset of the items that adds up to the "capacity", it should return an empty array
+        private static int[] bestItems(int capacity, int[] available) throws IOException {
+        // Read the file contents
+            // Determine capacity after taking in to account ship weight
+            // Go through each line and determine if adding the number is appropriate
+            // If the number makes the count go over capacity, it is not added
+            // Loop it
+            // Stop loop if no number is added to the weight
+            // Assume each item isn't finite and can be used multiple times
 
-            return new int[0];
+
+            //I'm gonna do this over the weekend anyway because I want to understand it
+            Scanner input = new Scanner((new File("01.in")));
+
+    System.out.println(input.nextLine());
+
+            return new int[100];
             // YOUR CODE IN HERE
         }
 
-        public static void main(String[] args) {
+        public static void main(String[] args) throws IOException {
+
             Scanner sc = new Scanner(System.in);
+
+
 
             int numOfTestCases = sc.nextInt();
 
             for (int testCase=0; testCase < numOfTestCases; testCase++) {
+
                 int capacity = sc.nextInt();
 
                 int numItems = sc.nextInt();
@@ -33,7 +49,7 @@ import java.util.*;
                 int[] result = bestItems(capacity, items);
 
                 if (result.length == 0) {
-                    System.out.println("Cannot fill to capacity.");
+                    System.out.println("Cannot fill to capacity, U WOT M8");
                 } else {
                     Arrays.sort(result);
                     System.out.println("This run uses: " + Arrays.toString(result));
